@@ -1,0 +1,78 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+double infinity = double.infinity;
+double h1 = 1.h;
+double h5 = 5.h;
+double h6 = 6.h;
+double h10 = 10.h;
+double h14 = 14.h;
+double h15 = 15.h;
+double h16 = 16.h;
+double h20 = 20.h;
+double h25 = 25.h;
+double h30 = 30.h;
+double h35 = 35.h;
+double h40 = 40.h;
+double h45 = 45.h;
+double h50 = 50.h;
+double h60 = 60.h;
+double h100 = 100.h;
+double h110 = 110.h;
+double h120 = 120.h;
+double h130 = 130.h;
+double h150 = 150.h;
+double h175 = 175.h;
+double h200 = 200.h;
+double h210 = 200.h;
+double h220 = 220.h;
+double h230 = 230.h;
+double h250 = 250.h;
+double h300 = 300.h;
+double h330 = 330.h;
+double h350 = 350.h;
+double h500 = 500.h;
+
+double w5 = 5.w;
+double w10 = 10.w;
+double w15 = 15.w;
+double w20 = 20.w;
+double w25 = 25.w;
+double w30 = 30.w;
+double w35 = 35.w;
+double w40 = 40.w;
+double w45 = 45.w;
+double w50 = 50.w;
+double w60 = 60.w;
+double w100 = 100.w;
+double w110 = 110.w;
+double w120 = 120.w;
+double w150 = 150.w;
+double w175 = 175.w;
+double w200 = 200.w;
+double w210 = 200.w;
+double w220 = 220.w;
+double w230 = 230.w;
+double w250 = 250.w;
+double w300 = 300.w;
+double w330 = 330.w;
+double w350 = 350.w;
+double w500 = 500.w;
+
+const double padding0 = 0;
+const double padding5 = 5;
+const double padding10 = 10;
+
+const double margin0 = 0;
+const double margin5 = 5;
+const double margin10 = 10;
+
+const double borderRadius10 = 10;
+const double borderRadius12 = 12;
+const double borderRadius15 = 15;
+const double borderRadius20 = 20;
+
+const double fontSize14 = 14;
+const double fontSize16 = 16;
+const double fontSize18 = 18;
+const double fontSize20 = 20;
+const double fontSize22 = 22;
