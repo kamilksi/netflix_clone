@@ -50,6 +50,7 @@ dependencies:
   # other
   json_serializable: ^6.2.0
   json_annotation: ^4.6.0
+  flutter_screenutil: ^5.6.1
 
 dev_dependencies:
   flutter_test:
