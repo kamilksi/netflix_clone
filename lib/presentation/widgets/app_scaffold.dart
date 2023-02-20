@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/presentation/utils/app_sizes.dart';
 import 'package:netflix_clone/presentation/utils/app_styles.dart';
@@ -30,7 +31,7 @@ class AppScaffold extends StatelessWidget {
                   padding: const EdgeInsets.all(padding5),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(borderRadius20),
-                    onTap: onTap ?? () {},
+                    onTap: onTap ?? context.router.pop,
                     child: const Center(
                       child: Icon(Icons.arrow_back_ios, color: Colors.black),
                     ),

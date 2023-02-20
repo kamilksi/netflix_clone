@@ -32,15 +32,19 @@ class CardWidget extends StatelessWidget {
             child: SizedBox(
               height: h175,
               width: w175,
+              child: isImage
+                  ? Image.network(
+                      alignment: Alignment(0, -1),
+                      imageUrl!,
+                      fit: BoxFit.cover,
+                    )
+                  : Container(
+                      height: h1,
+                      color: Styles.basicColor,
+                      width: w175,
+                    ),
             ),
           ),
-          isImage
-              ? Image.network(imageUrl!)
-              : Container(
-                  height: h1,
-                  color: Styles.basicColor,
-                  width: w175,
-                ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
