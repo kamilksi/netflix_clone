@@ -15,7 +15,9 @@ class HomeCubit extends Cubit<HomeState> {
     final result = await _getMoviesUseCase();
     result.fold(
       (l) => emit(HomeState.error(l)),
-      (r) => const HomeState.success(),
+      (r) => emit(
+        HomeState.success(moviesList: r.results),
+      ),
     );
   }
 }

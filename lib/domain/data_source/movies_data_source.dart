@@ -1,3 +1,6 @@
+import 'package:netflix_clone/data/dto%20/response/movies_response_dto.dart';
+
 abstract class MoviesDataSource {
-  Future<void> getMovies();
+  Future<MoviesResponseDto> getMovies();
+  Future<void> getTvShows();
 }

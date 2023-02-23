@@ -20,7 +20,7 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(List<Movie> moviesList) success,
     required TResult Function(Failure error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$HomeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(List<Movie> moviesList)? success,
     TResult? Function(Failure error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(List<Movie> moviesList)? success,
     TResult Function(Failure error)? error,
     required TResult orElse(),
   }) =>
@@ -124,7 +124,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(List<Movie> moviesList) success,
     required TResult Function(Failure error) error,
   }) {
     return initial();
@@ -135,7 +135,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(List<Movie> moviesList)? success,
     TResult? Function(Failure error)? error,
   }) {
     return initial?.call();
@@ -146,7 +146,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(List<Movie> moviesList)? success,
     TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {
@@ -237,7 +237,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(List<Movie> moviesList) success,
     required TResult Function(Failure error) error,
   }) {
     return loading();
@@ -248,7 +248,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(List<Movie> moviesList)? success,
     TResult? Function(Failure error)? error,
   }) {
     return loading?.call();
@@ -259,7 +259,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(List<Movie> moviesList)? success,
     TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {
@@ -316,6 +316,8 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Movie> moviesList});
 }
 
 /// @nodoc
@@ -324,36 +326,68 @@ class __$$_SuccessCopyWithImpl<$Res>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? moviesList = null,
+  }) {
+    return _then(_$_Success(
+      moviesList: null == moviesList
+          ? _value._moviesList
+          : moviesList // ignore: cast_nullable_to_non_nullable
+              as List<Movie>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success();
+  const _$_Success({required final List<Movie> moviesList})
+      : _moviesList = moviesList;
+
+  final List<Movie> _moviesList;
+  @override
+  List<Movie> get moviesList {
+    if (_moviesList is EqualUnmodifiableListView) return _moviesList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_moviesList);
+  }
 
   @override
   String toString() {
-    return 'HomeState.success()';
+    return 'HomeState.success(moviesList: $moviesList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Success);
+        (other.runtimeType == runtimeType &&
+            other is _$_Success &&
+            const DeepCollectionEquality()
+                .equals(other._moviesList, _moviesList));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_moviesList));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(List<Movie> moviesList) success,
     required TResult Function(Failure error) error,
   }) {
-    return success();
+    return success(moviesList);
   }
 
   @override
@@ -361,10 +395,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(List<Movie> moviesList)? success,
     TResult? Function(Failure error)? error,
   }) {
-    return success?.call();
+    return success?.call(moviesList);
   }
 
   @override
@@ -372,12 +406,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(List<Movie> moviesList)? success,
     TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(moviesList);
     }
     return orElse();
   }
@@ -421,7 +455,12 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements HomeState {
-  const factory _Success() = _$_Success;
+  const factory _Success({required final List<Movie> moviesList}) = _$_Success;
+
+  List<Movie> get moviesList;
+  @JsonKey(ignore: true)
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -498,7 +537,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(List<Movie> moviesList) success,
     required TResult Function(Failure error) error,
   }) {
     return error(this.error);
@@ -509,7 +548,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(List<Movie> moviesList)? success,
     TResult? Function(Failure error)? error,
   }) {
     return error?.call(this.error);
@@ -520,7 +559,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(List<Movie> moviesList)? success,
     TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {

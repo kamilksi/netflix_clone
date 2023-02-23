@@ -20,6 +20,7 @@ MovieDto _$MovieDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MovieDto {
+  @JsonKey(name: 'poster_path')
   String get posterPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
@@ -34,7 +35,7 @@ abstract class $MovieDtoCopyWith<$Res> {
   factory $MovieDtoCopyWith(MovieDto value, $Res Function(MovieDto) then) =
       _$MovieDtoCopyWithImpl<$Res, MovieDto>;
   @useResult
-  $Res call({String posterPath, String title});
+  $Res call({@JsonKey(name: 'poster_path') String posterPath, String title});
 }
 
 /// @nodoc
@@ -73,7 +74,7 @@ abstract class _$$_MovieDtoCopyWith<$Res> implements $MovieDtoCopyWith<$Res> {
       __$$_MovieDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String posterPath, String title});
+  $Res call({@JsonKey(name: 'poster_path') String posterPath, String title});
 }
 
 /// @nodoc
@@ -106,12 +107,15 @@ class __$$_MovieDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MovieDto implements _MovieDto {
-  const _$_MovieDto({required this.posterPath, required this.title});
+  const _$_MovieDto(
+      {@JsonKey(name: 'poster_path') required this.posterPath,
+      required this.title});
 
   factory _$_MovieDto.fromJson(Map<String, dynamic> json) =>
       _$$_MovieDtoFromJson(json);
 
   @override
+  @JsonKey(name: 'poster_path')
   final String posterPath;
   @override
   final String title;
@@ -151,12 +155,13 @@ class _$_MovieDto implements _MovieDto {
 
 abstract class _MovieDto implements MovieDto {
   const factory _MovieDto(
-      {required final String posterPath,
+      {@JsonKey(name: 'poster_path') required final String posterPath,
       required final String title}) = _$_MovieDto;
 
   factory _MovieDto.fromJson(Map<String, dynamic> json) = _$_MovieDto.fromJson;
 
   @override
+  @JsonKey(name: 'poster_path')
   String get posterPath;
   @override
   String get title;

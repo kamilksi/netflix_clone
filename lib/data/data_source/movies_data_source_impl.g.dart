@@ -19,7 +19,30 @@ class _MoviesDataSourceImpl implements MoviesDataSourceImpl {
   String? baseUrl;
 
   @override
-  Future<void> getMovies() async {
+  Future<MoviesResponseDto> getMovies() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<MoviesResponseDto>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/3/discover/movie',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = MoviesResponseDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<void> getTvShows() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -31,7 +54,7 @@ class _MoviesDataSourceImpl implements MoviesDataSourceImpl {
     )
         .compose(
           _dio.options,
-          '/3/discover/movie',
+          '/3/discover/tv',
           queryParameters: queryParameters,
           data: _data,
         )

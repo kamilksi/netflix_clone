@@ -8,7 +8,7 @@ part 'movie_dto.g.dart';
 @freezed
 class MovieDto with _$MovieDto {
   const factory MovieDto({
-    required String posterPath,
+    @JsonKey(name: 'poster_path') required String posterPath,
     required String title,
   }) = _MovieDto;
 
