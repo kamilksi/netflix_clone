@@ -31,7 +31,7 @@ class _MoviesDataSourceImpl implements MoviesDataSourceImpl {
     )
         .compose(
           _dio.options,
-          '/3/discover/',
+          '/3/discover/movie',
           queryParameters: queryParameters,
           data: _data,
         )

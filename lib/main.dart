@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:netflix_clone/presentation/utils/router/app_router.dart';
 
+import 'injectable/injectable.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await injectDependencies();
   await ScreenUtil.ensureScreenSize();
   runApp(MyApp());
 }

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix_clone/data/interceptors/auth_interceptor.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../injectable.dart';
 
@@ -38,6 +39,7 @@ void registerInterceptors() {
         compact: false,
         maxWidth: 90,
       ),
+      AuthInterceptor(),
     ],
   );
 }
