@@ -15,3 +15,8 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # netflix_clone
+
+
+Before you can try this app you'll need to get an API key from TMDB. 
+Add your key to String yourApiKey in auth_interceptor.dart 
+Launch the app :) 
