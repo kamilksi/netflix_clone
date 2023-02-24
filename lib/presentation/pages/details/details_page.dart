@@ -9,7 +9,7 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       canGoBack: true,
-      title: Text("Oszustwo"),
+      backgroundColor: Colors.white24,
       child: DetailsPageBody(),
     );
   }

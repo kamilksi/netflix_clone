@@ -1,20 +1,19 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/presentation/utils/app_styles.dart';
 
+const String _overview = "Overview";
+
 class OverviewWidget extends StatelessWidget {
-  final String? sentence;
-  final String? entry;
   final String? description;
   final String? name;
   final String? role;
-  const OverviewWidget(
-      {Key? key,
-      this.sentence,
-      this.entry,
-      this.description,
-      this.name,
-      this.role})
-      : super(key: key);
+  const OverviewWidget({
+    Key? key,
+    this.description,
+    this.name,
+    this.role,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,52 +22,15 @@ class OverviewWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(sentence ?? "Read beetween the lies."),
-          const SizedBox(
-            height: 20,
-          ),
           Text(
-            "Overview",
+            _overview,
             style: Styles.headLineStyle,
           ),
           const SizedBox(
             height: 20,
           ),
-          Text(entry ??
-              "Film opowiada o perypetiach oszustów, którzy biorą sobie za cel nowojorskiego bogacza i jego syna."),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(description ??
-              "Film eksploruje sekrety Nowego Jorku, od tych skrywanych w apartamentowcach Piątej Alei do tych z ciemnych zaułków Queensu. Nic nie jest takie, jakie się wydaje - motywacje są brane pod lupę, a oczekiwania burzone."),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name ?? "Craig Mazin",
-                    style: Styles.textStyle,
-                  ),
-                  Text(role ?? "Creator"),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name ?? "Neil Druckmann",
-                    style: Styles.textStyle,
-                  ),
-                  Text(role ?? "Creator"),
-                ],
-              ),
-            ],
-          ),
+          AutoSizeText(description ??
+              "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives."),
           const SizedBox(
             height: 20,
           ),

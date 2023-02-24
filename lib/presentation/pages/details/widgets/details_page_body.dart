@@ -13,12 +13,9 @@ class DetailsPageBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: const [
-          DetailHeader(
-              isStreaming: true, title: "Black Panther", whenRelease: "(2023)"),
+          DetailHeader(title: "Black Panther", whenRelease: "(2023)"),
           ButtonsRow(userScore: "100"),
           OverviewWidget(),
-          ImagesRow(title: "Top Billed Cast"),
-          ImagesRow(title: "Related videos"),
         ],
       ),
     );
