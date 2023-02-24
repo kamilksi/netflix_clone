@@ -30,9 +30,18 @@ class AppRouter extends _i3.RootStackRouter {
       );
     },
     DetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<DetailsRouteArgs>(
+          orElse: () => const DetailsRouteArgs());
       return _i3.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i2.DetailsPage(),
+        child: _i2.DetailsPage(
+          key: args.key,
+          overview: args.overview,
+          title: args.title,
+          releaseDate: args.releaseDate,
+          voteAverage: args.voteAverage,
+          imgUrl: args.imgUrl,
+        ),
         transitionsBuilder: _i3.TransitionsBuilders.slideLeftWithFade,
         opaque: true,
         barrierDismissible: false,
@@ -67,12 +76,54 @@ class HomeRoute extends _i3.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.DetailsPage]
-class DetailsRoute extends _i3.PageRouteInfo<void> {
-  const DetailsRoute()
-      : super(
+class DetailsRoute extends _i3.PageRouteInfo<DetailsRouteArgs> {
+  DetailsRoute({
+    _i4.Key? key,
+    String? overview,
+    String? title,
+    String? releaseDate,
+    double? voteAverage,
+    String? imgUrl,
+  }) : super(
           DetailsRoute.name,
           path: '/details-page',
+          args: DetailsRouteArgs(
+            key: key,
+            overview: overview,
+            title: title,
+            releaseDate: releaseDate,
+            voteAverage: voteAverage,
+            imgUrl: imgUrl,
+          ),
         );
 
   static const String name = 'DetailsRoute';
+}
+
+class DetailsRouteArgs {
+  const DetailsRouteArgs({
+    this.key,
+    this.overview,
+    this.title,
+    this.releaseDate,
+    this.voteAverage,
+    this.imgUrl,
+  });
+
+  final _i4.Key? key;
+
+  final String? overview;
+
+  final String? title;
+
+  final String? releaseDate;
+
+  final double? voteAverage;
+
+  final String? imgUrl;
+
+  @override
+  String toString() {
+    return 'DetailsRouteArgs{key: $key, overview: $overview, title: $title, releaseDate: $releaseDate, voteAverage: $voteAverage, imgUrl: $imgUrl}';
+  }
 }
