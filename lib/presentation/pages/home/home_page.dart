@@ -16,10 +16,6 @@ class HomePage extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.cast),
-        ),
-        IconButton(
-          onPressed: () {},
           icon: const Icon(Icons.search),
         ),
         IconButton(

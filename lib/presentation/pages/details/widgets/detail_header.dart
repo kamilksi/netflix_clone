@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/presentation/utils/app_sizes.dart';
 import 'package:netflix_clone/presentation/utils/app_styles.dart';
 
 const String nowStreaming = "Now Streaming";
@@ -11,8 +13,7 @@ class DetailHeader extends StatelessWidget {
   final String? whenRelease;
   final String? genre;
   final String? lengthVideo;
-  final Color? colorService;
-  final bool isStreaming;
+
   const DetailHeader({
     Key? key,
     this.imgUrl,
@@ -20,15 +21,14 @@ class DetailHeader extends StatelessWidget {
     this.whenRelease,
     this.genre,
     this.lengthVideo,
-    this.colorService,
-    required this.isStreaming,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
+        SizedBox(
           height: 500,
           width: double.infinity,
           child: Image.network(
@@ -36,56 +36,23 @@ class DetailHeader extends StatelessWidget {
                   'https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg',
               fit: BoxFit.cover),
         ),
-        // !Watch now
-        isStreaming
-            ? Container(
-                decoration:
-                    BoxDecoration(color: colorService ?? Colors.blueGrey),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.apple),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    // Watch now
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(nowStreaming),
-                        Text(
-                          watchNow,
-                          style: Styles.textStyle,
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            : SizedBox.shrink(),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(padding10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  // Tytul filmu
-                  Text(
-                    title ?? "Title",
-                    style: Styles.headLineStyle.copyWith(fontSize: 36),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    whenRelease ?? "Release year",
-                    style: Styles.textStyle.copyWith(fontSize: 36),
-                  ),
-                ],
+              AutoSizeText(
+                "${title ?? "Title"} ${whenRelease ?? "Release year"}",
+                textAlign: TextAlign.left,
+                style: Styles.headLineStyle,
+                presetFontSizes: [26, 28, 30, 32],
+                maxLines: 3,
               ),
-              Text("${genre ?? "Genre"}, ${lengthVideo ?? "2h 42m"} "),
+              AutoSizeText(
+                "${genre ?? "Genre"}, ${lengthVideo ?? "2h 42m"} ",
+                textAlign: TextAlign.left,
+                presetFontSizes: [14, 16, 18],
+              ),
             ],
           ),
         ),

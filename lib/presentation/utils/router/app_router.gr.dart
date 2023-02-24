@@ -30,9 +30,12 @@ class AppRouter extends _i3.RootStackRouter {
       );
     },
     DetailsRoute.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
+      return _i3.CustomPage<dynamic>(
         routeData: routeData,
         child: const _i2.DetailsPage(),
+        transitionsBuilder: _i3.TransitionsBuilders.slideLeftWithFade,
+        opaque: true,
+        barrierDismissible: false,
       );
     },
   };
