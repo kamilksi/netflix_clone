@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Movie {
   String get posterPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get overview => throw _privateConstructorUsedError;
+  String get releaseDate => throw _privateConstructorUsedError;
+  double get voteAverage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MovieCopyWith<Movie> get copyWith => throw _privateConstructorUsedError;
@@ -28,7 +31,12 @@ abstract class $MovieCopyWith<$Res> {
   factory $MovieCopyWith(Movie value, $Res Function(Movie) then) =
       _$MovieCopyWithImpl<$Res, Movie>;
   @useResult
-  $Res call({String posterPath, String title});
+  $Res call(
+      {String posterPath,
+      String title,
+      String overview,
+      String releaseDate,
+      double voteAverage});
 }
 
 /// @nodoc
@@ -46,6 +54,9 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
   $Res call({
     Object? posterPath = null,
     Object? title = null,
+    Object? overview = null,
+    Object? releaseDate = null,
+    Object? voteAverage = null,
   }) {
     return _then(_value.copyWith(
       posterPath: null == posterPath
@@ -56,6 +67,18 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      overview: null == overview
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String,
+      releaseDate: null == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      voteAverage: null == voteAverage
+          ? _value.voteAverage
+          : voteAverage // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -66,7 +89,12 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       __$$_MovieCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String posterPath, String title});
+  $Res call(
+      {String posterPath,
+      String title,
+      String overview,
+      String releaseDate,
+      double voteAverage});
 }
 
 /// @nodoc
@@ -80,6 +108,9 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
   $Res call({
     Object? posterPath = null,
     Object? title = null,
+    Object? overview = null,
+    Object? releaseDate = null,
+    Object? voteAverage = null,
   }) {
     return _then(_$_Movie(
       posterPath: null == posterPath
@@ -90,6 +121,18 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      overview: null == overview
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String,
+      releaseDate: null == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      voteAverage: null == voteAverage
+          ? _value.voteAverage
+          : voteAverage // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -97,16 +140,27 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
 /// @nodoc
 
 class _$_Movie implements _Movie {
-  const _$_Movie({required this.posterPath, required this.title});
+  const _$_Movie(
+      {required this.posterPath,
+      required this.title,
+      required this.overview,
+      required this.releaseDate,
+      required this.voteAverage});
 
   @override
   final String posterPath;
   @override
   final String title;
+  @override
+  final String overview;
+  @override
+  final String releaseDate;
+  @override
+  final double voteAverage;
 
   @override
   String toString() {
-    return 'Movie(posterPath: $posterPath, title: $title)';
+    return 'Movie(posterPath: $posterPath, title: $title, overview: $overview, releaseDate: $releaseDate, voteAverage: $voteAverage)';
   }
 
   @override
@@ -116,11 +170,18 @@ class _$_Movie implements _Movie {
             other is _$_Movie &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.overview, overview) ||
+                other.overview == overview) &&
+            (identical(other.releaseDate, releaseDate) ||
+                other.releaseDate == releaseDate) &&
+            (identical(other.voteAverage, voteAverage) ||
+                other.voteAverage == voteAverage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, posterPath, title);
+  int get hashCode => Object.hash(
+      runtimeType, posterPath, title, overview, releaseDate, voteAverage);
 
   @JsonKey(ignore: true)
   @override
@@ -132,12 +193,21 @@ class _$_Movie implements _Movie {
 abstract class _Movie implements Movie {
   const factory _Movie(
       {required final String posterPath,
-      required final String title}) = _$_Movie;
+      required final String title,
+      required final String overview,
+      required final String releaseDate,
+      required final double voteAverage}) = _$_Movie;
 
   @override
   String get posterPath;
   @override
   String get title;
+  @override
+  String get overview;
+  @override
+  String get releaseDate;
+  @override
+  double get voteAverage;
   @override
   @JsonKey(ignore: true)
   _$$_MovieCopyWith<_$_Movie> get copyWith =>
