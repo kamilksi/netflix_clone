@@ -2,15 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/presentation/pages/details/widgets/detail_button.dart';
 import 'package:netflix_clone/presentation/utils/app_styles.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 const user = "User";
 const score = "Score";
 
 class ButtonsRow extends StatelessWidget {
-  final String userScore;
   final VoidCallback? listPress;
   final VoidCallback? favPress;
   final VoidCallback? bookmarkPress;
+  final double userScore;
   const ButtonsRow(
       {Key? key,
       required this.userScore,
@@ -21,34 +22,24 @@ class ButtonsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double uScore = userScore / 10;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            height: 70,
-            width: 70,
-            decoration: BoxDecoration(
-              color: Colors.white24,
-              border: Border.all(color: Colors.green, width: 4),
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    userScore,
-                    style: Styles.headLineStyle,
-                  ),
-                  Text(
-                    "%",
-                    textScaleFactor: 0.7,
-                    style: Styles.textStyle,
-                  ),
-                ],
-              ),
+          CircularPercentIndicator(
+            radius: 45,
+            lineWidth: 5,
+            progressColor: uScore > 0.61
+                ? Colors.green
+                : uScore > 0.4
+                    ? Colors.yellow
+                    : Colors.red,
+            percent: uScore,
+            center: Text(
+              "${userScore * 10}%",
+              style: Styles.headLineStyle,
             ),
           ),
           Column(

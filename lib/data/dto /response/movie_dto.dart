@@ -10,14 +10,20 @@ class MovieDto with _$MovieDto {
   const factory MovieDto({
     @JsonKey(name: 'poster_path') required String posterPath,
     required String title,
+    required String overview,
+    @JsonKey(name: 'release_date') required String releaseDate,
+    @JsonKey(name: 'vote_average') required double voteAverage,
   }) = _MovieDto;
 
-  factory MovieDto.fromJson(Map<String, dynamic> json) => _$MovieDtoFromJson(json);
+  factory MovieDto.fromJson(Map<String, dynamic> json) =>
+      _$MovieDtoFromJson(json);
 }
 
 extension MovieDtoExtension on MovieDto {
   Movie get toEntity => Movie(
-        posterPath: posterPath,
-        title: title,
-      );
+      posterPath: posterPath,
+      title: title,
+      overview: overview,
+      releaseDate: releaseDate,
+      voteAverage: voteAverage);
 }

@@ -12,7 +12,6 @@ import 'package:netflix_clone/presentation/utils/app_sizes.dart';
 import 'package:netflix_clone/presentation/utils/app_styles.dart';
 import 'package:netflix_clone/presentation/utils/router/app_router.dart';
 import 'package:netflix_clone/presentation/widgets/app_progress_indicator.dart';
-import 'package:netflix_clone/presentation/widgets/app_scaffold.dart';
 
 const String seriale = "Seriale";
 const String filmy = "Filmy";
@@ -76,7 +75,14 @@ Widget _build(BuildContext context, List<Movie> moviesList) =>
                       imageUrl:
                           "https://image.tmdb.org/t/p/w300/${moviesList[index].posterPath}",
                       onPressed: () async {
-                        await context.router.push(DetailsRoute());
+                        await context.router.push(DetailsRoute(
+                          imgUrl:
+                              "https://image.tmdb.org/t/p/w500/${moviesList[index].posterPath}",
+                          title: moviesList[index].title,
+                          overview: moviesList[index].overview,
+                          releaseDate: moviesList[index].releaseDate,
+                          voteAverage: moviesList[index].voteAverage,
+                        ));
                       },
                     )),
           ),

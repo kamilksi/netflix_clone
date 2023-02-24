@@ -57,6 +57,7 @@ dependencies:
   pretty_dio_logger: ^1.1.1
   auto_size_text: ^3.0.0
   page_transition: ^2.0.9
+  percent_indicator: ^4.2.2
 
 dev_dependencies:
   flutter_test:
